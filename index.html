@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Website</title>
+    <link rel="stylesheet" href="path/to/autocomplete.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Recipe Website</h1>
+        <label for="dishName">Select Dish:</label>
+        <input type="text" id="dishName" placeholder="Search for a dish">
+
+        <button onclick="generateRecipe()">Generate Recipe</button>
+        
+        <a href="recipes.html" class="recipes-button">View All Recipes</a>
+        
+
+        <div id="recipeSteps"></div>
+    </div>
+
+    <script src="path/to/autocomplete.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        var availableDishes = [
+            "Chicken Curry",
+            "Spaghetti Bolognese",
+            "Vegetable Stir-Fry"
+            // Add more dishes as needed
+        ];
+
+        var autocomplete = new Autocomplete('#dishName', {
+            search: input => {
+                return availableDishes.filter(dish =>
+                    dish.toLowerCase().includes(input.toLowerCase())
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>
